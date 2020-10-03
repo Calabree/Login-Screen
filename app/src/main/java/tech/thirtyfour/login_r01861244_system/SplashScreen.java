@@ -7,12 +7,18 @@ import android.os.PersistableBundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import static java.lang.Thread.sleep;
+
 public class SplashScreen extends AppCompatActivity {
-    private int splashscreenWait = 2000;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        try {
+            sleep(750);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         startActivity(new Intent(this,MainActivity.class));
         finish();
     }
