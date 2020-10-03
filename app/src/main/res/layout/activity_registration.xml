@@ -4,14 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginSuccessful">
+    tools:context=".Registration">
 
-    <TextView
-        android:layout_width="409dp"
-        android:layout_height="127dp"
-        android:text="Login Successful!"
-        android:textAlignment="center"
-        android:textSize="100px"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="292dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

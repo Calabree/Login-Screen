@@ -11,10 +11,16 @@ import android.widget.Toast;
 import java.util.*;
 
 
+
 public class  MainActivity extends AppCompatActivity {
 
-    public Map<String, String> password = new HashMap<String, String>();
+    public static Map<String, String> password = new HashMap<String, String>();
 
+
+    static boolean emailIsValid(String emailToCheck) {
+        String emailValidationRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return emailToCheck.matches(emailValidationRegex);
+    }
     EditText loginEmail, loginPassword;
 
 
@@ -26,32 +32,36 @@ public class  MainActivity extends AppCompatActivity {
         loginEmail = (EditText) findViewById(R.id.loginEmail);
         loginPassword = (EditText) findViewById(R.id.loginPassword);
 
-        //
     }
 
+
     public void loginButton(View view) {
-        password.put("calap@farmingdale.edu", "peter");
 
-        String pword = loginPassword.getText().toString();
+
+        password.put("calap@farmingdale.edu", "peter"); //default username and password to test login
+
         String email = loginEmail.getText().toString();
-        System.out.println("hashmap: " + password.get(email).toString());
-        System.out.println("password: " + loginPassword.getText().toString());
 
-        if (pword.equals(password.get(email))) {
-            System.out.println("What the actual fuck");
+        if (!emailIsValid(email)){
+            Toast.makeText(MainActivity.this, "Please enter a valid email", Toast.LENGTH_SHORT).show();
+            return;
         }
         if (password.get(email) == null) {
             Toast.makeText(MainActivity.this, "This email is not in our database", Toast.LENGTH_SHORT).show();
             return;
         }
-
         if (!loginPassword.getText().toString().equals(password.get(loginEmail.getText().toString()))) {
-            Toast.makeText(MainActivity.this, "password is incorrect", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
             return;
-        } else {
+        }
+        else {
             startActivity(new Intent(this, loginSuccessful.class));
             finish();
         }
 
+    }
+
+    public void registerButton(View view){
+        startActivity(new Intent(this, Registration.class));
     }
 }
