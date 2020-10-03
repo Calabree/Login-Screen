@@ -3,8 +3,7 @@
     <item android:drawable="@color/white"/>
     <item>
         <bitmap
-            android:src="@drawable/waffle"
-            android:gravity="center"
+            android:src="@drawable/login_splashscreen"
             />
     </item>
 </layer-list>
