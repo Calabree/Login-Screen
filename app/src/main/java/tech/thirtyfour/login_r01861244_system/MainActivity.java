@@ -15,7 +15,9 @@ import java.util.*;
 public class  MainActivity extends AppCompatActivity {
 
     public static Map<String, String> password = new HashMap<String, String>();
-
+    public static Map<String, String> fname = new HashMap<String, String>();
+    public static Map<String, String> lname = new HashMap<String, String>();
+    public static Map<String, String> DOB = new HashMap<String, String>();
 
     static boolean emailIsValid(String emailToCheck) {
         String emailValidationRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
