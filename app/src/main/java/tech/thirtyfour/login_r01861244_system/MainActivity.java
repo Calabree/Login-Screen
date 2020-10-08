@@ -1,20 +1,21 @@
 package tech.thirtyfour.login_r01861244_system;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 
 public class  MainActivity extends AppCompatActivity {
 
-    public static Map<String, String> password = new HashMap<String, String>();
+    public static Map<String, String> passwords = new HashMap<String, String>();
     public static Map<String, String> fname = new HashMap<String, String>();
     public static Map<String, String> lname = new HashMap<String, String>();
     public static Map<String, String> DOB = new HashMap<String, String>();
@@ -40,7 +41,7 @@ public class  MainActivity extends AppCompatActivity {
     public void loginButton(View view) {
 
 
-        password.put("calap@farmingdale.edu", "peter"); //default username and password to test login
+        passwords.put("calap@farmingdale.edu", "peter"); //default username and password to test login
 
         String email = loginEmail.getText().toString();
 
@@ -48,11 +49,11 @@ public class  MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Please enter a valid email", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (password.get(email) == null) {
+        if (passwords.get(email) == null) {
             Toast.makeText(MainActivity.this, "This email is not in our database", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (!loginPassword.getText().toString().equals(password.get(loginEmail.getText().toString()))) {
+        if (!loginPassword.getText().toString().equals(passwords.get(loginEmail.getText().toString()))) {
             Toast.makeText(MainActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
             return;
         }

@@ -7,32 +7,49 @@
     tools:context=".Registration">
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/DateOB"
         android:layout_width="282dp"
         android:layout_height="63dp"
-
+        android:hint="DATE OF BIRTH"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.399" />
+
+    <EditText
+        android:id="@+id/newPassword"
+        android:layout_width="282dp"
+        android:layout_height="63dp"
+        android:hint="PASSWORD"
+        android:textAlignment="center"
+        android:layout_marginTop="448dp"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="282dp"
         android:layout_height="63dp"
+        android:hint="EMAIL"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414" />
+        app:layout_constraintVertical_bias="0.528" />
 
     <EditText
         android:id="@+id/LastName"
         android:layout_width="282dp"
         android:layout_height="63dp"
+        android:hint="LAST NAME"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -44,6 +61,8 @@
         android:id="@+id/FirstName"
         android:layout_width="282dp"
         android:layout_height="63dp"
+        android:hint="FIRST NAME"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -55,10 +74,13 @@
         android:id="@+id/signup"
         android:layout_width="283dp"
         android:layout_height="66dp"
+        android:onClick="registerButton"
+        android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
+        app:layout_constraintVertical_bias="0.86" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
