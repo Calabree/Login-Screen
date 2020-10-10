@@ -2,14 +2,16 @@ package tech.thirtyfour.login_r01861244_system;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.HashMap;
+
 import static java.lang.Thread.sleep;
 
 public class SplashScreen extends AppCompatActivity {
+    static HashMap<String, String> passwords = new HashMap<String, String>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,7 +21,10 @@ public class SplashScreen extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        startActivity(new Intent(this,MainActivity.class));
+        //passwords.put("calap@farmingdale.edu", "peter");
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("map", passwords);
+        startActivity(intent);
         finish();
     }
 }

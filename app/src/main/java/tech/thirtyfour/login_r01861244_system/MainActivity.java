@@ -9,23 +9,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
-import java.util.Map;
-
 
 
 public class  MainActivity extends AppCompatActivity {
 
-    public static Map<String, String> passwords = new HashMap<String, String>();
-    public static Map<String, String> fname = new HashMap<String, String>();
-    public static Map<String, String> lname = new HashMap<String, String>();
-    public static Map<String, String> DOB = new HashMap<String, String>();
+     HashMap<String, String> passwords;
 
-    static boolean emailIsValid(String emailToCheck) {
-        String emailValidationRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-        return emailToCheck.matches(emailValidationRegex);
-    }
+
     EditText loginEmail, loginPassword;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +25,21 @@ public class  MainActivity extends AppCompatActivity {
 
         loginEmail = (EditText) findViewById(R.id.loginEmail);
         loginPassword = (EditText) findViewById(R.id.loginPassword);
+        Intent intent = getIntent();
+        passwords = (HashMap<String, String>)intent.getSerializableExtra("map");
+
 
     }
+    boolean emailIsValid(String emailToCheck) {
+        String emailValidationRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return emailToCheck.matches(emailValidationRegex);
 
+    }
 
     public void loginButton(View view) {
 
 
+        //System.out.println(passwords.get(loginEmail.getText().toString()));
         passwords.put("calap@farmingdale.edu", "peter"); //default username and password to test login
 
         String email = loginEmail.getText().toString();
@@ -49,7 +48,7 @@ public class  MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Please enter a valid email", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (passwords.get(email) == null) {
+        if (passwords.get(loginEmail.getText().toString()) == null) {
             Toast.makeText(MainActivity.this, "This email is not in our database", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -65,6 +64,7 @@ public class  MainActivity extends AppCompatActivity {
     }
 
     public void registerButton(View view){
+
         startActivity(new Intent(this, Registration.class));
     }
 }
